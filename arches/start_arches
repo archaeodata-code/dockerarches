@@ -1,0 +1,22 @@
+# Once the containers are running in docker, go to your command line
+# and used the following docker command to enter the arches container
+
+docker exec -it arches /bin/bash
+
+# once inside the container you can then issue these 
+# commands to get the arches project built
+
+# build project - can change to whatever name suits
+arches-project create bsa_dev
+
+# copy in local settings
+cp ./settings_local.py ./bsa_dev/bsa_dev/settings_local.py 
+
+# create database
+yes | python3 ./bsa_dev/manage.py setup_db
+
+# load sample arches package
+python3 ./bsa_dev/manage.py packages -o load_package -s https://github.com/archesproject/arches-example-pkg/archive/master.zip -db
+
+# run the server
+python3 ./bsa_dev/manage.py runserver 0.0.0.0:8000
