@@ -1,6 +1,6 @@
 # dockerarches 0.0.1 
-# february 2022
-# nathan meyer
+february 2022
+nathan meyer
 
 This docker-compose.yml and related instructions can be used to set up a basic container running Arches for development / learning puposes. The Arches Dockerfile is put in a separate directory so that you can expand the apps in the docker-compose.yml (example, add another django based app) without having to rewrite the docker-compose.yml
 
