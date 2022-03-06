@@ -59,5 +59,8 @@ RUN apt -y install nano
 COPY ./arches/settings_local.py /settings_local.py
 RUN sed -i 's/\r$//g' /settings_local.py
 
+# copy in a pkg zip
+COPY ./arches/pkg /pkg
+
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]
