@@ -1,6 +1,5 @@
 dockerarches 0.0.1 
 february 2022
-nathan meyer
 
 This docker-compose.yml and related instructions can be used to set up a basic container running Arches for development / learning puposes. The Arches Dockerfile is put in a separate directory so that you can expand the apps in the docker-compose.yml (example, add another django based app) without having to rewrite the docker-compose.yml
 
@@ -26,7 +25,6 @@ Issues encountered:
 
 1) Time settings in the arches container.  I having issues with arches/postgis communication that appeared to be related to local time settings.  Hence in the docker-compose.yml and the Dockerfile for arches, you see specific items for managing local time for those two containers.  You will want to edit those to your particulars.
 
-2) I do not have an appropriate technique in place to ensure Postgis is up before launching arches.  That should be fixed but for now my entrypoint is set kept the arches container running so I can issue the build commands
+2) I do not have an appropriate technique in place to ensure Postgis is up before launching arches. There is an entrypoint script that I am presently not using but can be adapted. Instead I am using an entrypoint to keep the arches container running so that is accessible for the commands to build the arches project etc.
 
-3) see start_arches for the steps to actually run the arches server
-
+4) see start_arches for the steps to actually build the project, load a package and run the server.
